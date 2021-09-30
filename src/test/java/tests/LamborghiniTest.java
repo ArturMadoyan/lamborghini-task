@@ -13,9 +13,11 @@ public class LamborghiniTest extends BaseTest{
         SearchLamborghiniPage lmbPage = new SearchLamborghiniPage(driver);
         lmbPage.searchFiled("Lamborghini");
         lmbPage.clickOnPageSeven();
-        lmbPage.clickOnForthLink();
+        lmbPage.clickOnLmbLosAngelesButton();
         System.out.println(driver.getTitle());
+        System.out.println(driver.getCurrentUrl());
         String actualTitle = driver.getTitle();
         Assertions.assertEquals(Constants.EXPECTED_TITLE,actualTitle);
+        Assert.assertEquals("https://www.ogaracoach.com/lamborghini.htm",driver.getCurrentUrl());
     }
 }
