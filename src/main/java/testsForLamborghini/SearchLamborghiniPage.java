@@ -36,10 +36,9 @@ public class SearchLamborghiniPage extends BasePage {
     }
 
     public void clickOnLmbLosAngelesButton(){
-        jse.executeScript("window.scrollTo(0,300);");
         List<WebElement> list = driver.findElements(By.cssSelector("div[class='yuRUbf']"));
         for(int i=0; i<list.size();i++ ){
-            if(list.get(i).getText().startsWith("Lamborghini Dealer Los Angeles")){
+            if(list.get(i).getText().startsWith("Lamborghini Dealer Los Angeles - Beverly Hills")){
                 list.get(i).click();
                 break; } 
         }
