@@ -17,8 +17,6 @@ public class SearchLamborghiniPage extends BasePage {
     @FindBy(css = "a[aria-label='Page 7']")
     private WebElement sevenPageButton;
 
-    @FindBy(css = "button[class='btn btn-primary consumer-privacy-banner-button flex-shrink-0 w-auto mt-3 mt-sm-0 ml-sm-3 mb-sm-3']")
-    private WebElement cookieButton;
 
     public SearchLamborghiniPage(WebDriver driver) {
         super(driver);
@@ -37,11 +35,14 @@ public class SearchLamborghiniPage extends BasePage {
         sevenPageButton.click();
     }
 
-    public void clickOnForthLink(){
-       jse.executeScript("window.scrollTo(0,300);");
+    public void clickOnLmbLosAngelesButton(){
+        jse.executeScript("window.scrollTo(0,300);");
         List<WebElement> list = driver.findElements(By.cssSelector("div[class='yuRUbf']"));
-        wait.until(ExpectedConditions.elementToBeClickable(list.get(3)));
-        list.get(3).click();
+        for(int i=0; i<list.size();i++ ){
+            if(list.get(i).getText().startsWith("Lamborghini Dealer Los Angeles")){
+                list.get(i).click();
+                break; } 
+        }
     }
 
 }
