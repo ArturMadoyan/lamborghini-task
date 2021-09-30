@@ -44,8 +44,4 @@ public class SearchLamborghiniPage extends BasePage {
         list.get(3).click();
     }
 
-    public void stopLoading() {
-       wait.until(ExpectedConditions.titleContains("Lamborghini"));
-        ((JavascriptExecutor) driver).executeScript("window.stop;");
-    }
 }
