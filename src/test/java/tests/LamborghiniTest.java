@@ -14,7 +14,6 @@ public class LamborghiniTest extends BaseTest{
         lmbPage.searchFiled("Lamborghini");
         lmbPage.clickOnPageSeven();
         lmbPage.clickOnForthLink();
-        //lmbPage.stopLoading();
         System.out.println(driver.getTitle());
         String actualTitle = driver.getTitle();
         Assertions.assertEquals(Constants.EXPECTED_TITLE,actualTitle);
