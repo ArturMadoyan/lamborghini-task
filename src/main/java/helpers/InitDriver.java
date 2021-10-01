@@ -18,38 +18,15 @@ public class InitDriver {
             if (driver.equalsIgnoreCase("chrome")) {
                 WebDriverManager.chromedriver().setup();
                 webDriver = new ChromeDriver();
-                return webDriver;
             } else if (driver.equalsIgnoreCase("firefox")) {
                 WebDriverManager.firefoxdriver().setup();
                 webDriver = new FirefoxDriver();
-                return webDriver;
             }
+
+            return webDriver;
         }
         WebDriverManager.chromedriver().setup();
         webDriver = new ChromeDriver();
-        return webDriver;
-    }
-
-
-    public WebDriver getDriverFromAppProperties() {
-        try {
-            Properties properties = new Properties();
-            FileReader fileReader = new FileReader("src/main/resources/app.properties");
-            properties.load(fileReader);
-            String driver = properties.getProperty("driver");
-            if (driver.equalsIgnoreCase("chrome")) {
-                WebDriverManager.chromedriver().setup();
-                webDriver = new ChromeDriver();
-                return webDriver;
-            } else if (driver.equalsIgnoreCase("firefox")) {
-                WebDriverManager.firefoxdriver().setup();
-                webDriver = new FirefoxDriver();
-                return webDriver;
-            }
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
         return webDriver;
     }
 }
