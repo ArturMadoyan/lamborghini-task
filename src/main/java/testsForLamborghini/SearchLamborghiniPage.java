@@ -23,24 +23,25 @@ public class SearchLamborghiniPage extends BasePage {
     }
 
 
-    public String searchFiled(String search){
+    public String searchFiled(String search) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[name='q'][type='text']")));
-       searchFiled.sendKeys(search + Keys.ENTER);
+        searchFiled.sendKeys(search + Keys.ENTER);
         return search;
     }
 
-    public void clickOnPageSeven (){
+    public void clickOnPageSeven() {
         jse.executeScript("window.scrollTo(0,3100);");
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a[aria-label='Page 7']")));
         sevenPageButton.click();
     }
 
-    public void clickOnLmbLosAngelesButton(){
+    public void clickOnLmbLosAngelesButton() {
         List<WebElement> list = driver.findElements(By.cssSelector("div[class='yuRUbf']"));
-        for(int i=0; i<list.size();i++ ){
-            if(list.get(i).getText().startsWith("Lamborghini Dealer Los Angeles - Beverly Hills")){
-                list.get(i).click();
-                break; } 
+        for (WebElement webElement : list) {
+            if (webElement.getText().startsWith("Lamborghini Dealer Los Angeles - Beverly Hills")) {
+                webElement.click();
+                break;
+            }
         }
     }
 
